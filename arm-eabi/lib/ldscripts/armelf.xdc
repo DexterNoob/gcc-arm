@@ -7,7 +7,7 @@ OUTPUT_FORMAT("elf32-littlearm", "elf32-bigarm",
 	      "elf32-littlearm")
 OUTPUT_ARCH(arm)
 ENTRY(_start)
-SEARCH_DIR("=/home/noobbeast/gcc-build/../gcc-arm/arm-eabi/lib"); SEARCH_DIR("=/usr/local/lib"); SEARCH_DIR("=/lib"); SEARCH_DIR("=/usr/lib");
+SEARCH_DIR("=/__w/gcc-build/gcc-build/../gcc-arm/arm-eabi/lib"); SEARCH_DIR("=/usr/local/lib"); SEARCH_DIR("=/lib"); SEARCH_DIR("=/usr/lib");
 SECTIONS
 {
   /* Read-only sections, merged into text segment: */
@@ -66,6 +66,7 @@ SECTIONS
   }
   .plt            : { *(.plt) }
   .iplt           : { *(.iplt) }
+  .gnu.sgstubs    : { *(.gnu.sgstubs*) }
   .text           :
   {
     *(.text.unlikely .text.*_unlikely .text.unlikely.*)
